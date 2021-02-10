@@ -1,0 +1,263 @@
+::selection {
+  background-color: $color-grey-dark2;
+  color: $color-primary;
+}
+
+body {
+  line-height: 1.7;
+  font-weight: 400;
+  font-family: "Lato", sans-serif;
+  color: $color-grey-dark;
+  background-color: #ebebeb;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8' viewBox='0 0 8 8'%3E%3Cg fill='%23f7f7f7' fill-opacity='0.4'%3E%3Cpath fill-rule='evenodd' d='M0 0h4v4H0V0zm4 4h4v4H4V4z'/%3E%3C/g%3E%3C/svg%3E");
+  overflow-x: hidden;
+}
+
+.intro-title {
+  height: 40vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  background-color: $color-white;
+  font-family: "Lobster Two", cursive;
+}
+.intro-title__img {
+  margin: 0;
+  padding: 0;
+  background: url("../img/your-wedding-countdown.jpg") center/cover no-repeat;
+  width: 277px;
+  height: 78px;
+  display: inline-block;
+
+  @media (min-width: $tablet) {
+    width: 446px;
+    height: 125px;
+  }
+}
+
+.section-form {
+  min-height: 60vh;
+  border-top: 1px solid $color-primary;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem 1rem 4rem;
+  font-size: 1.5rem;
+
+  @media (min-width: $tablet) {
+    font-size: 1.8rem;
+    padding-top: 3rem;
+  }
+
+  @media (min-width: $desktop) {
+    font-size: 2rem;
+    padding: 5rem 1rem;
+  }
+}
+
+.form {
+  background-color: rgba(255, 255, 255, 0.7);
+  border-radius: 3px;
+  padding: 3rem 2rem;
+  position: relative;
+
+  @media (min-width: $tablet) {
+    padding: 3rem 5rem;
+  }
+
+  @media (min-width: $desktop) {
+    padding: 5rem 7rem;
+  }
+
+  &__error {
+    color: rgba(255, 0, 0, 0.5);
+    text-align: center;
+  }
+
+  &__title {
+    text-transform: capitalize;
+    text-align: center;
+  }
+
+  &__submit {
+    background-color: $color-primary;
+    border-radius: 3px;
+    padding: 1rem 1.7rem;
+    color: $color-white;
+    box-shadow: 0px 1px 0.4rem rgba(0, 0, 0, 0.6);
+    border: none;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, 50%);
+    outline: none;
+    letter-spacing: 2px;
+    transition: all 0.2s;
+
+    &:hover {
+      cursor: pointer;
+      background-color: $color-black;
+      color: $color-primary;
+    }
+
+    @media (min-width: $desktop) {
+      font-size: 2rem;
+    }
+
+    @media (min-width: $tablet) {
+      font-size: 1.8rem;
+    }
+  }
+}
+
+.input {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin: 2rem 0;
+
+  @media (min-width: $tablet) {
+    margin: 3rem 2rem 4rem;
+  }
+  @media (min-width: $desktop) {
+    margin: 4rem 2rem 5rem;
+  }
+
+  &__number {
+    margin-right: 1rem;
+    border-radius: 50%;
+    background-color: $color-white;
+    width: 1.8em;
+    text-align: center;
+  }
+
+  &__field {
+    padding: 0.6rem 1rem;
+    border-radius: 3px;
+    border: none;
+    box-shadow: 0 0 0.3rem rgba(0, 0, 0, 0.6);
+    color: $color-grey-dark;
+    width: 100%;
+    font-size: 1.5rem;
+
+    @media (min-width: $tablet) {
+      width: auto;
+    }
+
+    @media (min-width: $desktop) {
+      font-size: 2rem;
+      padding: 1rem;
+    }
+  }
+
+  &__label {
+    @media (min-width: $tablet) {
+      order: 3;
+    }
+  }
+}
+
+.heading-secondary {
+  text-align: center;
+  color: $color-primary;
+  text-transform: uppercase;
+  font-family: serif;
+  font-weight: 500;
+  letter-spacing: 1px;
+  background-color: $color-white;
+
+  @media (min-width: $desktop) {
+    padding-top: 3rem;
+    margin-bottom: -5rem;
+    font-size: 2.6rem;
+  }
+}
+
+.names {
+  text-transform: capitalize;
+  @media (min-width: $desktop) {
+    font-size: 12.5rem;
+    font-weight: 700;
+
+    &__name {
+      color: $color-grey-dark2;
+    }
+
+    &__and-sign {
+      font-size: 18rem;
+      color: $color-primary;
+    }
+  }
+}
+.countdown-container {
+  text-align: center;
+  padding: 0.7rem;
+}
+
+.date-text {
+  font-size: 2.2rem;
+  text-transform: uppercase;
+  color: $color-grey-light;
+  margin: 2rem 1rem;
+  font-family: serif;
+  font-weight: 500;
+  letter-spacing: 1px;
+  display: inline-block;
+  position: relative;
+
+  &::before,
+  &::after {
+    content: "";
+    height: 1px;
+    background-color: $color-grey-light;
+    position: absolute;
+    margin: 0 1rem;
+  }
+  &::before {
+    left: -100%;
+    top: 50%;
+    width: 90%;
+  }
+  &::after {
+    right: -100%;
+    top: 50%;
+    width: 90%;
+  }
+}
+
+.countdown {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 5rem;
+
+  &__item {
+    padding: 2rem 1.5rem;
+    background-image: linear-gradient(
+      to top,
+      $color-primary-light,
+      rgba($color-primary-light, 0.1)
+    );
+    border-radius: 5rem;
+    width: 20rem;
+    font-family: "Lobster Two", cursive;
+    line-height: 1.2;
+  }
+
+  &__number {
+    text-shadow: 2px 2px 0 white;
+    font-weight: 900;
+    color: $color-primary-dark;
+    font-size: 12rem;
+  }
+
+  &__description {
+    font-size: 3rem;
+    text-transform: lowercase;
+    color: $color-grey-dark2;
+  }
+}

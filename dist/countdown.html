@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link rel="shortcut icon" href="../dist/img/logo-no-text.png" /> -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&family=Lobster+Two:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/main.css">
+    <title>Wedding Countdown</title>
+    <script src="../dist/js/script.js" defer></script>
+</head>
+<body>
+
+    <aside class="side-btns">
+
+
+    </aside>
+
+    <h1 class="heading-secondary" hidden>Wedding day countdown for</h1>
+    <div class="intro-title">
+        <!-- <img src="../dist/img/logo-orange.png" alt="logo" width="100px"> -->
+        <div class="intro-title__img"></div>
+        <p class="names" hidden>
+            <span class="names__name names__name--1"></span>
+            <span class="names__and-sign">  &</span>
+            <span class="names__name names__name--2"></span>
+        </p>
+    </div>
+
+    <section class="section-form">
+        <form action="#" class="form">
+            <h3 class="form__error" hidden>All fields are required!</h3>
+            <h1 class="form__title">Create your wedding day countdown</h1>
+            <div class="input">
+                <div class="input__number">1</div>
+                <label class="input__label" for="name1">Name (Person 1)</label>
+                <input type="text" class="input__field" id="name1" placeholder="Enter first name 1" maxlength="10">
+            </div>
+            <div class="input">
+                <div class="input__number">2</div>
+                <label class="input__label" for="name2">Name (Person 2)</label>
+                <input type="text" class="input__field" id="name2" placeholder="Enter first name 2" maxlength="10">
+            </div>
+            <div class="input">
+                <div class="input__number">3</div>
+                <label class="input__label" for="date">When's the wedding?</label>
+                <input type="date" class="input__field" id="date">
+            </div>
+
+            <button class="form__submit">Create wedding countdown</button>
+        </form>
+    </section>
+
+    <div class="countdown-container" hidden>
+        <h2 class="date-text">
+            <span class="date-text__inner"></span>
+        </h2>
+
+        <div class="countdown">
+            <div class="countdown__item" id="weeks">
+                <div class="countdown__number">
+                    
+                </div>
+                <div class="countdown__description">
+                    Weeks
+                </div>
+            </div>
+            <div class="countdown__item" id="days">
+                <div class="countdown__number">
+                    
+                </div>
+                <div class="countdown__description">
+                    Days
+                </div> 
+            </div>
+            <div class="countdown__item" id="hours">
+                <div class="countdown__number">
+                    
+                </div>
+                <div class="countdown__description">
+                    Hours
+                </div> 
+            </div>
+            <div class="countdown__item" id="minutes">
+                <div class="countdown__number">
+                    
+                </div>
+                <div class="countdown__description">
+                    Minutes
+                </div>
+            </div>
+            <div class="countdown__item" id="seconds">
+                <div class="countdown__number">
+                    
+                </div>
+                <div class="countdown__description">
+                    Seconds
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
