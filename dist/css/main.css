@@ -148,7 +148,7 @@ body {
 
 .form__submit:hover {
   cursor: pointer;
-  background-color: #383838;
+  background-color: #0a093b;
   color: #c9b375;
 }
 
@@ -340,16 +340,6 @@ body {
   color: #4b4b4b;
 }
 
-.side-btns-section {
-  position: fixed;
-  top: 50%;
-  left: 0;
-  -webkit-transform: translateY(-50%);
-          transform: translateY(-50%);
-  z-index: 999;
-  opacity: 0.8;
-}
-
 @-webkit-keyframes moveInLeft {
   from {
     -webkit-transform: translateX(-10rem);
@@ -370,6 +360,16 @@ body {
     -webkit-transform: translateX(0);
             transform: translateX(0);
   }
+}
+
+.side-btns-section {
+  position: fixed;
+  top: 50%;
+  left: 0;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  z-index: 999;
+  opacity: 0.8;
 }
 
 .side-btns {

@@ -98,7 +98,7 @@ body {
 
     &:hover {
       cursor: pointer;
-      background-color: $color-black;
+      background-color: $color-dark-blue2;
       color: $color-primary;
     }
 
@@ -259,59 +259,5 @@ body {
     font-size: 3rem;
     text-transform: lowercase;
     color: $color-grey-dark2;
-  }
-}
-
-.side-btns-section {
-  position: fixed;
-  top: 50%;
-  left: 0;
-  transform: translateY(-50%);
-  z-index: 999;
-  opacity: 0.8;
-}
-@keyframes moveInLeft {
-  from {
-    transform: translateX(-10rem);
-  }
-  to {
-    transform: translateX(0);
-  }
-}
-
-.side-btns {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-
-  &__item {
-    transform: translateX(-10rem);
-    transition: all 0.2s;
-    padding: 1.5rem;
-    margin: 0;
-    color: $color-white;
-    text-align: center;
-
-    &--1 {
-      font-size: 2.1rem;
-      background-color: #0a093b;
-      animation: moveInLeft 1s ease-out 0.2s forwards;
-    }
-
-    &--2 {
-      font-size: 2.1rem;
-      background-color: #1c1a59;
-      animation: moveInLeft 1s ease-out 0.6s forwards;
-    }
-
-    &--3 {
-      font-size: 2.2rem;
-      background-color: #575594;
-      animation: moveInLeft 1s ease-out 1s forwards;
-    }
-
-    &:hover {
-      padding: 1.5rem 2.2rem;
-    }
   }
 }
