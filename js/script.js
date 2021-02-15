@@ -4,25 +4,26 @@ const countdownForm = document.querySelector('.form');
 const countdownContainer = document.querySelector('.countdown-container');
 const name1El = document.getElementById('name1');
 const name2El = document.getElementById('name2');
+const name1 = document.querySelector('.names__name--1');
+const name2 = document.querySelector('.names__name--2');
 
 const error = document.querySelector('.form__error');
 
 const dateEl = document.getElementById('date');
 const timeElements = document.querySelectorAll('.countdown__number');
 
+
 let countdownDate = '';
 let countdownValue = Date;
 let countdownActive;
-
+let nameVal1 = '';
+let nameVal2 = '';
 
 // SET DATE INPUT MIN WITH TODAY'S DATE
 const today = new Date().toISOString().split('T')[0];
 dateEl.setAttribute('min', today);
 
-
-function setCountdown() {
-    // GET NUMBER VERSION OF CURRENT DATE
-    countdownDate = dateEl.value;
+function populateNumbers() {
     countdownValue = new Date(countdownDate).getTime();
 
     const now = new Date().getTime();
@@ -43,7 +44,7 @@ function setCountdown() {
         alert("Congratulations on reaching your wedding day! We wish you all the best for today and hope you have a fantastic day to remember. Good luck and we hope you enjoyed counting down!");
         clearInterval(countdownActive);
         const countdownEl = document.querySelector('.countdown');
-        countdown.style.display = 'none';
+        countdownEl.style.display = 'none';
     } else {
         // POPULATE COUNTDOWN
         timeElements[0].textContent = weeks;
@@ -54,12 +55,32 @@ function setCountdown() {
     }
 }
 
+function setCountdown() {
+    // GET NUMBER VERSION OF CURRENT DATE
+    countdownDate = dateEl.value;
+    setLocalStorage();
+    populateNumbers();
+}
+
+function populateNames() {
+    name1.textContent = nameVal1;
+    name2.textContent = nameVal2;
+}
+
 function setNames() {
-    // POPULATE NAMES
-    const name1 = document.querySelector('.names__name--1');
-    const name2 = document.querySelector('.names__name--2');
-    name1.textContent = name1El.value;
-    name2.textContent = name2El.value;
+    nameVal1 = name1El.value;
+    nameVal2 = name2El.value;
+    populateNames();
+    setLocalStorage(countdownDate, nameVal1, nameVal2);
+}
+
+function setLocalStorage(countdownDate, nameVal1, nameVal2) {
+    const savedCountdown = {
+    name1: nameVal1,
+    name2: nameVal2,
+    date: countdownDate,
+    };
+    localStorage.setItem('countdown',JSON.stringify(savedCountdown));
 }
 
 function setDateString() {
@@ -94,30 +115,33 @@ function setDateString() {
     dateString.textContent = `${weekdays[weekday]} ${dateValue}${suffix} ${months[monthValue]} ${yearValue}`;
 }
 
-// COMPLETE UI
+function completeUI() {
+    // HIDE INPUT
+    const formSection = document.querySelector('.section-form');
+    formSection.style.display = 'none';
+
+    // HIDE HERO IMAGE
+    const logoImg = document.querySelector('.intro-title__img');
+    logoImg.style.display = 'none';
+
+    // SHOW PARAGRAPH
+    const title = document.querySelector('.heading-secondary');
+    title.hidden = false;
+
+    // SHOW NAMES
+    const namesEl = document.querySelector('.names');
+    namesEl.hidden = false;
+
+    // SHOW COUNTDOWN
+    countdownContainer.hidden = false;
+}
+
 function updateDOM() {
     countdownActive = setInterval(() => {
         setCountdown();
         setNames();
         setDateString();
-        // HIDE INPUT
-        const formSection = document.querySelector('.section-form');
-        formSection.style.display = 'none';
-
-        // HIDE HERO IMAGE
-        const logoImg = document.querySelector('.intro-title__img');
-        logoImg.style.display = 'none';
-
-        // SHOW PARAGRAPH
-        const title = document.querySelector('.heading-secondary');
-        title.hidden = false;
-
-        // SHOW NAMES
-        const namesEl = document.querySelector('.names');
-        namesEl.hidden = false;
-
-        // SHOW COUNTDOWN
-        countdownContainer.hidden = false;
+        completeUI();
     }, 1000);
 }
 
@@ -149,6 +173,25 @@ function checkInput(e) {
         updateDOM();
     }
 }
+
+function restorePreviousCountdown() {
+    // Get countdown from LocalStorage
+    if (localStorage.getItem('countdown')) {
+        const savedCountdown = JSON.parse(localStorage.getItem('countdown'));
+        countdownDate = savedCountdown.date;
+        nameVal1 = savedCountdown.name1;
+        nameVal2 = savedCountdown.name2;
+        countdownValue = new Date(countdownDate).getTime();
+        countdownActive = setInterval(() => {
+            populateNumbers();
+            populateNames();
+            setDateString();
+            completeUI();
+        }, 1000);
+    }
+}
+
+restorePreviousCountdown();
 
 // EVENT LISTENER
 countdownForm.addEventListener('submit', checkInput);
