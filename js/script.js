@@ -6,6 +6,7 @@ const name1El = document.getElementById('name1');
 const name2El = document.getElementById('name2');
 const name1 = document.querySelector('.names__name--1');
 const name2 = document.querySelector('.names__name--2');
+const resetEl = document.querySelector('.reset');
 
 const error = document.querySelector('.form__error');
 
@@ -174,6 +175,42 @@ function checkInput(e) {
     }
 }
 
+function reset() {
+    if (confirm ('This will remove your old countdown. Are you sure you want to re-start?')) {
+        clearInterval(countdownActive);
+        countdownDate = '';
+        nameVal1 = '';
+        nameVal2 = '';
+         // SHOW INPUT
+         const formSection = document.querySelector('.section-form');
+         formSection.style.display = 'flex';
+         countdownForm.style.display = 'initial';
+    
+        //  REMOVE INPUT VALUE
+        name1El.value = '';
+        name2El.value = '';
+        dateEl.value = '';
+     
+         // SHOW HERO IMAGE
+         const logoImg = document.querySelector('.intro-title__img');
+         logoImg.style.display = 'initial';
+     
+         // HIDE PARAGRAPH
+         const title = document.querySelector('.heading-secondary');
+         title.hidden = true;
+     
+         // HIDE NAMES
+         const namesEl = document.querySelector('.names');
+         namesEl.hidden = true;
+     
+         // HIDE COUNTDOWN
+         countdownContainer.hidden = true;
+    
+        // REMOVE LOCAL STORAGE
+         localStorage.removeItem('countdown');
+    }
+}
+
 function restorePreviousCountdown() {
     // Get countdown from LocalStorage
     if (localStorage.getItem('countdown')) {
@@ -188,6 +225,8 @@ function restorePreviousCountdown() {
             setDateString();
             completeUI();
         }, 1000);
+    } else {
+        countdownForm.style.display = 'block';
     }
 }
 
@@ -195,3 +234,5 @@ restorePreviousCountdown();
 
 // EVENT LISTENER
 countdownForm.addEventListener('submit', checkInput);
+resetEl.addEventListener('click', reset);
+

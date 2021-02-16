@@ -1,3 +1,42 @@
+.btn {
+  padding: 1.8rem 3rem;
+  border: none;
+  letter-spacing: 2px;
+  transition: all 0.2s;
+  background-color: $color-black;
+  color: $color-white;
+  outline: 0.3rem solid $color-primary;
+  outline-offset: 0.3rem;
+
+  &:hover {
+    cursor: pointer;
+    outline: 0.8rem solid $color-primary;
+  }
+
+  &:active {
+    outline: 0.3rem solid $color-primary;
+  }
+
+  @media (min-width: $desktop) {
+    font-size: 2rem;
+  }
+
+  @media (min-width: $tablet) {
+    font-size: 1.8rem;
+  }
+
+  &__submit {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, 50%);
+  }
+
+  &__reset {
+    margin: 5rem auto;
+  }
+}
+
 .side-btns-section {
   position: fixed;
   top: 50%;

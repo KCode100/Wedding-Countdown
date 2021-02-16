@@ -94,7 +94,7 @@ body {
 @media (min-width: 769px) {
   .section-form {
     font-size: 2rem;
-    padding: 5rem 1rem;
+    padding: 5rem 1rem 8rem;
   }
 }
 
@@ -103,6 +103,7 @@ body {
   border-radius: 3px;
   padding: 3rem 2rem;
   position: relative;
+  display: none;
 }
 
 @media (min-width: 480px) {
@@ -125,43 +126,6 @@ body {
 .form__title {
   text-transform: capitalize;
   text-align: center;
-}
-
-.form__submit {
-  background-color: #c9b375;
-  border-radius: 3px;
-  padding: 1rem 1.7rem;
-  color: #fff;
-  -webkit-box-shadow: 0px 1px 0.4rem rgba(0, 0, 0, 0.6);
-          box-shadow: 0px 1px 0.4rem rgba(0, 0, 0, 0.6);
-  border: none;
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  -webkit-transform: translate(-50%, 50%);
-          transform: translate(-50%, 50%);
-  outline: none;
-  letter-spacing: 2px;
-  -webkit-transition: all 0.2s;
-  transition: all 0.2s;
-}
-
-.form__submit:hover {
-  cursor: pointer;
-  background-color: #0a093b;
-  color: #c9b375;
-}
-
-@media (min-width: 769px) {
-  .form__submit {
-    font-size: 2rem;
-  }
-}
-
-@media (min-width: 480px) {
-  .form__submit {
-    font-size: 1.8rem;
-  }
 }
 
 .input {
@@ -237,31 +201,37 @@ body {
   font-weight: 500;
   letter-spacing: 1px;
   background-color: #fff;
+  font-size: 2rem;
+  padding: 3rem 1rem 2rem;
+  margin-bottom: -5rem;
 }
 
 @media (min-width: 769px) {
   .heading-secondary {
-    padding-top: 3rem;
-    margin-bottom: -5rem;
     font-size: 2.6rem;
   }
 }
 
 .names {
   text-transform: capitalize;
+  font-size: 7.5rem;
+  font-weight: 700;
+  color: #4b4b4b;
+  line-height: 1;
+  text-align: center;
+}
+
+.names__and-sign {
+  font-size: 10rem;
+  color: #c9b375;
 }
 
 @media (min-width: 769px) {
-  .names {
-    font-size: 12.5rem;
-    font-weight: 700;
-  }
   .names__name {
-    color: #4b4b4b;
+    font-size: 12.5rem;
   }
   .names__and-sign {
     font-size: 18rem;
-    color: #c9b375;
   }
 }
 
@@ -360,6 +330,51 @@ body {
     -webkit-transform: translateX(0);
             transform: translateX(0);
   }
+}
+
+.btn {
+  padding: 1.8rem 3rem;
+  border: none;
+  letter-spacing: 2px;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+  background-color: #383838;
+  color: #fff;
+  outline: 0.3rem solid #c9b375;
+  outline-offset: 0.3rem;
+}
+
+.btn:hover {
+  cursor: pointer;
+  outline: 0.8rem solid #c9b375;
+}
+
+.btn:active {
+  outline: 0.3rem solid #c9b375;
+}
+
+@media (min-width: 769px) {
+  .btn {
+    font-size: 2rem;
+  }
+}
+
+@media (min-width: 480px) {
+  .btn {
+    font-size: 1.8rem;
+  }
+}
+
+.btn__submit {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  -webkit-transform: translate(-50%, 50%);
+          transform: translate(-50%, 50%);
+}
+
+.btn__reset {
+  margin: 5rem auto;
 }
 
 .side-btns-section {

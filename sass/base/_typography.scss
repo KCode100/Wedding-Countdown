@@ -53,7 +53,7 @@ body {
 
   @media (min-width: $desktop) {
     font-size: 2rem;
-    padding: 5rem 1rem;
+    padding: 5rem 1rem 8rem;
   }
 }
 
@@ -62,6 +62,7 @@ body {
   border-radius: 3px;
   padding: 3rem 2rem;
   position: relative;
+  display: none;
 
   @media (min-width: $tablet) {
     padding: 3rem 5rem;
@@ -79,36 +80,6 @@ body {
   &__title {
     text-transform: capitalize;
     text-align: center;
-  }
-
-  &__submit {
-    background-color: $color-primary;
-    border-radius: 3px;
-    padding: 1rem 1.7rem;
-    color: $color-white;
-    box-shadow: 0px 1px 0.4rem rgba(0, 0, 0, 0.6);
-    border: none;
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translate(-50%, 50%);
-    outline: none;
-    letter-spacing: 2px;
-    transition: all 0.2s;
-
-    &:hover {
-      cursor: pointer;
-      background-color: $color-dark-blue2;
-      color: $color-primary;
-    }
-
-    @media (min-width: $desktop) {
-      font-size: 2rem;
-    }
-
-    @media (min-width: $tablet) {
-      font-size: 1.8rem;
-    }
   }
 }
 
@@ -168,27 +139,34 @@ body {
   font-weight: 500;
   letter-spacing: 1px;
   background-color: $color-white;
+  font-size: 2rem;
+  padding: 3rem 1rem 2rem;
+  margin-bottom: -5rem;
 
   @media (min-width: $desktop) {
-    padding-top: 3rem;
-    margin-bottom: -5rem;
     font-size: 2.6rem;
   }
 }
 
 .names {
   text-transform: capitalize;
+  font-size: 7.5rem;
+  font-weight: 700;
+  color: $color-grey-dark2;
+  line-height: 1;
+  text-align: center;
+
+  &__and-sign {
+    font-size: 10rem;
+    color: $color-primary;
+  }
+
   @media (min-width: $desktop) {
-    font-size: 12.5rem;
-    font-weight: 700;
-
     &__name {
-      color: $color-grey-dark2;
+      font-size: 12.5rem;
     }
-
     &__and-sign {
       font-size: 18rem;
-      color: $color-primary;
     }
   }
 }

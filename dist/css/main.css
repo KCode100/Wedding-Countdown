@@ -249,19 +249,22 @@ body {
 
 .names {
   text-transform: capitalize;
+  font-size: 6.5rem;
+  font-weight: 700;
+}
+
+.names__name {
+  color: #4b4b4b;
+}
+
+.names__and-sign {
+  font-size: 9rem;
+  color: #c9b375;
 }
 
 @media (min-width: 769px) {
-  .names {
-    font-size: 12.5rem;
-    font-weight: 700;
-  }
-  .names__name {
-    color: #4b4b4b;
-  }
   .names__and-sign {
     font-size: 18rem;
-    color: #c9b375;
   }
 }
 
